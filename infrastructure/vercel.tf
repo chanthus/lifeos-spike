@@ -1,8 +1,8 @@
 terraform {
   cloud {
-    organization = "{{terraformCloudOrg}}"
+    organization = "chanthu"
     workspaces {
-      name = "{{terraformCloudWorkspace}}"
+      name = "lifeos-spike"
     }
   }
 

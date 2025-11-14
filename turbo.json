@@ -1,6 +1,8 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalDependencies": [
+    "**/.env.*local"
+  ],
   "globalEnv": [
     "NODE_ENV",
     "DB_HOST",
@@ -15,13 +17,21 @@
   ],
   "tasks": {
     "prebuild": {
-      "env": ["DATABASE_URL", "DB_PROVIDER"]
+      "env": [
+        "DATABASE_URL",
+        "DB_PROVIDER"
+      ]
     },
     "postbuild": {
-      "env": ["DATABASE_URL", "DB_PROVIDER"]
+      "env": [
+        "DATABASE_URL",
+        "DB_PROVIDER"
+      ]
     },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": [
         ".next/**",
         "!.next/cache/**",
@@ -29,7 +39,12 @@
         "build/**",
         ".expo/**"
       ],
-      "env": ["NEXT_PUBLIC_*", "EXPO_PUBLIC_*", "DATABASE_URL", "DB_PROVIDER"],
+      "env": [
+        "NEXT_PUBLIC_*",
+        "EXPO_PUBLIC_*",
+        "DATABASE_URL",
+        "DB_PROVIDER"
+      ],
       "cache": false
     },
     "dev": {
@@ -37,8 +52,12 @@
       "persistent": true
     },
     "test": {
-      "dependsOn": ["^build"],
-      "outputs": ["coverage/**"],
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "coverage/**"
+      ],
       "env": [
         "DB_HOST",
         "DB_PORT",
@@ -54,22 +73,32 @@
       "persistent": true
     },
     "test:coverage": {
-      "dependsOn": ["^build"],
-      "outputs": ["coverage/**"],
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "coverage/**"
+      ],
       "cache": false
     },
     "lint": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": [],
       "cache": false
     },
     "lint:fix": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "cache": false,
       "outputs": []
     },
     "typecheck": {
-      "dependsOn": ["^build"],
+      "dependsOn": [
+        "^build"
+      ],
       "outputs": [],
       "cache": false
     },
@@ -78,7 +107,10 @@
     },
     "db:generate": {
       "cache": false,
-      "outputs": ["src/schema/*.ts", "drizzle/**"]
+      "outputs": [
+        "src/schema/*.ts",
+        "drizzle/**"
+      ]
     },
     "db:migrate": {
       "cache": false

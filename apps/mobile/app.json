@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "{{projectNameTitle}}",
-    "slug": "{{projectName}}-mobile",
+    "name": "Lifeos Spike",
+    "slug": "lifeos-spike-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
@@ -12,12 +12,12 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "{{orgName}}.mobile"
+      "bundleIdentifier": "chanthus.mobile"
     },
     "android": {
-      "package": "{{orgName}}.mobile"
+      "package": "chanthus.mobile"
     },
-    "scheme": "{{projectName}}",
+    "scheme": "lifeos-spike",
     "plugins": ["expo-router", "expo-font", "expo-asset"]
   }
 }

@@ -5,7 +5,7 @@
 # It is committed to git and shared across the team
 
 # GitHub Repository
-github_repo = "{{githubRepo}}"
+github_repo = "chanthus/lifeos-spike"
 
 # ==================================================
 # Database Configuration
@@ -15,13 +15,13 @@ github_repo = "{{githubRepo}}"
 neon_region = "aws-us-east-2"
 
 # Neon project name (appears in Neon dashboard)
-neon_project_name = "{{projectName}}-production"
+neon_project_name = "lifeos-spike-production"
 
 # Database name within the Neon project
-neon_database_name = "{{projectName}}"
+neon_database_name = "lifeos-spike"
 
 # Database role/user name
-neon_role_name = "{{projectNameSnake}}_owner"
+neon_role_name = "lifeos_spike_owner"
 
 # ==================================================
 # App Deployment Flags
@@ -39,7 +39,7 @@ deploy_admin     = true
 # These names appear in Vercel dashboard and URLs
 # Format: https://{project_name}.vercel.app
 
-project_name_backend   = "{{projectName}}-backend"
-project_name_marketing = "{{projectName}}-marketing"
-project_name_web       = "{{projectName}}-web"
-project_name_admin     = "{{projectName}}-admin"
+project_name_backend   = "lifeos-spike-backend"
+project_name_marketing = "lifeos-spike-marketing"
+project_name_web       = "lifeos-spike-web"
+project_name_admin     = "lifeos-spike-admin"
