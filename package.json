@@ -1,0 +1,85 @@
+{
+  "name": "{{projectName}}",
+  "version": "0.0.0",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0",
+  "scripts": {
+    "postinstall": "pnpm env:setup",
+    "setup_template": "plop --plopfile .plopjs/plopfile.js",
+    "dev": "turbo run dev",
+    "dev:marketing": "turbo run dev --filter=@project/marketing",
+    "dev:web": "turbo run dev --filter=@project/web",
+    "dev:admin": "turbo run dev --filter=@project/admin",
+    "dev:mobile": "pnpm --filter @project/mobile dev -c",
+    "dev:backend": "turbo run dev --filter=@project/backend",
+    "build": "TURBO_FORCE=true turbo run build",
+    "build:packages": "TURBO_FORCE=true turbo run build --filter='./packages/*'",
+    "build:apps": "TURBO_FORCE=true turbo run build --filter='./apps/*'",
+    "test": "TURBO_FORCE=true turbo run test",
+    "test:watch": "turbo run test:watch",
+    "test:coverage": "TURBO_FORCE=true turbo run test:coverage",
+    "lint": "TURBO_FORCE=true turbo run lint",
+    "lint:fix": "TURBO_FORCE=true turbo run lint:fix",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,mdx}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,mdx}\"",
+    "typecheck": "TURBO_FORCE=true turbo run typecheck",
+    "check": "pnpm typecheck && pnpm lint && pnpm format:check",
+    "check:strict": "pnpm build && pnpm lint && pnpm format:check",
+    "fix": "pnpm lint:fix && pnpm format",
+    "clean": "turbo run clean",
+    "rm_node_modules": "find . -name 'node_modules' -type d -prune -exec rm -rf {} + && echo '✅ All node_modules cleaned'",
+    "db:generate": "turbo run db:generate --filter=@project/db",
+    "db:migrate": "turbo run db:migrate --filter=@project/db",
+    "db:push": "turbo run db:push --filter=@project/db",
+    "db:studio": "turbo run db:studio --filter=@project/db",
+    "db:seed": "turbo run db:seed --filter=@project/db",
+    "infra": "nix run .#infra",
+    "infra:stop": "pkill -f 'postgres.*\\.postgres-data' || true",
+    "prepare": "husky",
+    "env:setup": "sh -c 'for dir in . apps/backend apps/web apps/admin apps/mobile; do [ -f \"$dir/.env.example\" ] && [ ! -f \"$dir/.env\" ] && cp \"$dir/.env.example\" \"$dir/.env\" && echo \"✅ Created $dir/.env\" || echo \"⏭️  Skipped $dir/.env (already exists or no .env.example)\"; done'",
+    "killall": "for port in 43890 43892 43893 43894 43895 43896; do lsof -ti :$port 2>/dev/null | xargs kill -9 2>/dev/null || true; done && echo '✅ All development servers stopped'"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@project/config": "workspace:*",
+    "@types/node": "^20.11.0",
+    "dotenv": "^16.4.1",
+    "eslint": "^8.56.0",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.0",
+    "plop": "^4.0.1",
+    "prettier": "^3.2.4",
+    "tsx": "^4.7.0",
+    "turbo": "^2.6.0",
+    "typescript": "^5.8.3"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{json,md,mdx}": [
+      "prettier --write"
+    ]
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "19.1.0",
+      "react-dom": "19.1.0",
+      "@types/react": "~19.1.10",
+      "@types/react-dom": "^19.0.0",
+      "react-native-svg": "15.12.1"
+    },
+    "patchedDependencies": {
+      "unrs-resolver@1.11.1": "patches/unrs-resolver@1.11.1.patch",
+      "react-native-worklets@0.5.1": "patches/react-native-worklets@0.5.1.patch"
+    }
+  }
+}

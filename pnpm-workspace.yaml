@@ -1,0 +1,10 @@
+packages:
+  - 'packages/*'
+  - 'apps/*'
+
+public-hoist-pattern:
+  - '*react-native*'
+  - '*expo*'
+  - '@react-native*'
+  - '@expo*'
+  - '*babel*'

@@ -1,0 +1,32 @@
+# Terraform state files
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Terraform variable files (contain sensitive data)
+terraform.tfvars
+*.auto.tfvars.json
+
+# Exception: config.auto.tfvars is safe to commit (non-sensitive)
+!config.auto.tfvars
+
+# Backend configuration files (contain org/workspace names)
+backend.tfbackend
+
+# Terraform CLI configuration
+.terraform/
+# Note: .terraform.lock.hcl SHOULD be committed (provider version lock)
+
+# Crash log files
+crash.log
+crash.*.log
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc

@@ -1,0 +1,50 @@
+{
+  "name": "@project/backend",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Backend api server",
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts"
+  },
+  "scripts": {
+    "dev": "nodemon --exec vite-node src/index.ts --watch src",
+    "build": "tsup",
+    "postbuild": "if [ \"$VERCEL\" = \"1\" ] && [ -n \"$DATABASE_URL\" ]; then cd ../../packages/db && pnpm db:migrate; fi",
+    "clean": "rm -rf dist *.tsbuildinfo",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx}\"",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@hono/node-server": "1.19.6",
+    "@project/db": "workspace:*",
+    "@project/shared": "workspace:*",
+    "@trpc/server": "^11.7.1",
+    "dotenv": "^16.4.1",
+    "drizzle-orm": "^0.29.3",
+    "hono": "4.10.4",
+    "postgres": "^3.4.3",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@project/config": "workspace:*",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^20.11.0",
+    "nodemon": "3.1.10",
+    "tsup": "8.5.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.12",
+    "vite-node": "^1.2.1",
+    "vitest": "^1.2.1"
+  }
+}

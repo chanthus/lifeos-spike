@@ -1,0 +1,23 @@
+{
+  "expo": {
+    "name": "{{projectNameTitle}}",
+    "slug": "{{projectName}}-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "{{orgName}}.mobile"
+    },
+    "android": {
+      "package": "{{orgName}}.mobile"
+    },
+    "scheme": "{{projectName}}",
+    "plugins": ["expo-router", "expo-font", "expo-asset"]
+  }
+}

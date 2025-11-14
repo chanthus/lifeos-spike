@@ -1,0 +1,11 @@
+{
+  "extends": "@project/config/typescript/react-native.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "strict": true,
+    "strictNullChecks": true
+  },
+  "include": ["**/*.ts", "**/*.tsx", "nativewind-env.d.ts"]
+}

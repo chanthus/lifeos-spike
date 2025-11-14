@@ -1,0 +1,15 @@
+diff --git a/package.json b/package.json
+index 731495987c37c882fb70b7356bac3c355ae447dc..f754dc1f022d0e0c91a965c02b062afc38c1e8c7 100644
+--- a/package.json
++++ b/package.json
+@@ -15,9 +15,7 @@
+     "index.d.ts",
+     "index.js"
+   ],
+-  "scripts": {
+-    "postinstall": "napi-postinstall unrs-resolver 1.11.1 check"
+-  },
++  "scripts": {},
+   "dependencies": {
+     "napi-postinstall": "^0.3.0"
+   },

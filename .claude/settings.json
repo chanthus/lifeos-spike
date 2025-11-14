@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "terminal-notifier -sound glass -ignoreDnD -title 'Project' -contentImage 'https://registry.npmmirror.com/@lobehub/icons-static-png/1.68.0/files/dark/claude-color.png' -message 'Claude needs your attention'"
+          }
+        ]
+      }
+    ]
+  }
+}

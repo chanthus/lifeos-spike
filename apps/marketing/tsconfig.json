@@ -1,0 +1,21 @@
+{
+  "extends": "@project/config/typescript/nextjs.json",
+  "compilerOptions": {
+    "jsxImportSource": "nativewind",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/app/*": ["./app/*"],
+      "@/components/*": ["./components/*"]
+    },
+    "strict": true,
+    "strictNullChecks": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "nativewind-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

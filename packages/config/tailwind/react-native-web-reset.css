@@ -1,0 +1,30 @@
+/* React Native Web reset styles to prevent layout shift during SSR */
+html,
+body,
+#__next {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex: 1 1 0%;
+  flex-direction: column;
+}
+
+#__next {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Prevent FOUC (Flash of Unstyled Content) */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure React Native Web styles are applied correctly */
+[data-rnw-int-display='flex'] {
+  display: flex !important;
+}
+
+[data-rnw-int-display='block'] {
+  display: block !important;
+}

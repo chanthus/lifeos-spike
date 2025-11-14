@@ -1,0 +1,16 @@
+node_modules
+dist
+build
+.next
+.expo
+coverage
+drizzle
+.postgres-data
+*.log
+.turbo
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+.env
+.env.*
+!.env.example

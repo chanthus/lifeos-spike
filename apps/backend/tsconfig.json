@@ -1,0 +1,12 @@
+{
+  "extends": "@project/config/typescript/node.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "composite": false,
+    "incremental": false,
+    "strict": true,
+    "strictNullChecks": true
+  },
+  "include": ["src/**/*.ts"]
+}

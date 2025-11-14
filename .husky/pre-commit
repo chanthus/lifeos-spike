@@ -1,0 +1,15 @@
+#!/bin/sh
+# Husky pre-commit hook - Reminds Claude to use git-commit-discipline skill
+
+echo ""
+echo "📖 Reminder: Use git-commit-discipline skill before committing"
+echo ""
+echo "   Required steps:"
+echo "   1. Invoke Skill tool with 'git-commit-discipline'"
+echo "   2. Run: git status && git diff"
+echo "   3. Review actual changes (not conversation memory)"
+echo "   4. Write concise message (max 100 chars, WHY not WHAT)"
+echo "   5. Add attribution footer"
+echo ""
+
+exit 0

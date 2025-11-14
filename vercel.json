@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm turbo build --filter=@project/backend --filter=@project/marketing --filter=@project/web --filter=@project/admin",
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD ./",
+  "github": {
+    "silent": true
+  }
+}
